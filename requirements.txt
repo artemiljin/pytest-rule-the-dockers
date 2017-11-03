@@ -1,0 +1,3 @@
+pytest
+pyhamcrest
+docker-compose == 1.11.2

@@ -13,22 +13,20 @@ services:
       - mysql_data:/var/lib/mysql
     command: mysqld --collation-server=utf8_unicode_ci --character-set-server=utf8
   web:
-    build: .
-    command: python3 manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
+    image: web
+    command: /usr/local/bin/python /code/manage.py runserver 0.0.0.0:8000
     ports:
-      - "8000:8000"
-    depends_on:
+      - "127.0.0.1:8000:8000"
+    links:
       - db
-  backup_restore:
-    image: backup_restore
-    volumes:
-      - ./${PYTEST_BACKUP_DIR}:/backup
-      - mysql_data:/var/lib/backup/mysql
-    command: backup
-  zhdun:
-    image: zhdun
+#  backup_restore:
+#    image: backup_restore
+#    volumes:
+#      - ./${PYTEST_BACKUP_DIR}:/backup
+#      - mysql_data:/var/lib/backup/mysql
+#    command: help
+#  zhdun:
+#    image: zhdun
 volumes:
   mysql_data:
     external: true

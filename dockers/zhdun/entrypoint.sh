@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 #title          :entrypoint.sh
 #usage          :entrypoint.sh
 #description    :entrypoint for zhdun docker

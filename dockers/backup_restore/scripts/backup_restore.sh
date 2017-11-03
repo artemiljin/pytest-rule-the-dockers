@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 #title          :backup_restore.sh
 #usage          :backup_restore.sh usage | backup | restore
 #description    :backup restore dbs
